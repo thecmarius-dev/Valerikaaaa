@@ -38,12 +38,16 @@ h1 {
 h2 {
     font-size: 1.1em;
     font-weight: normal;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .buttons {
     position: relative;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: 80px;
 }
 
 button {
@@ -63,8 +67,7 @@ button {
 .no {
     background: #6c757d;
     color: white;
-    position: absolute;
-    right: 0;
+    position: relative; /* important */
 }
 
 #response {
@@ -113,9 +116,9 @@ noBtn.addEventListener("touchstart", evade);
 noBtn.addEventListener("mouseover", evade);
 
 function evade() {
-    // fuge "Nu"
-    const x = Math.random() * 200;
-    const y = Math.random() * 70;
+    // mută "Nu" față de poziția lui inițială
+    const x = (Math.random() - 0.5) * 200;
+    const y = (Math.random() - 0.5) * 40;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
     // crește "DA"
