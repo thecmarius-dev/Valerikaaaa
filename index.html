@@ -1,152 +1,1255 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valerikaaaaa ❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>$30K Mission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
+:root {
+  --bg: #0a0e0d;
+  --bg2: #111614;
+  --bg3: #181e1b;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --green: #22c55e;
+  --green-dim: rgba(34,197,94,0.15);
+  --green-glow: rgba(34,197,94,0.08);
+  --amber: #f59e0b;
+  --amber-dim: rgba(245,158,11,0.12);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,0.12);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.1);
+  --text: #f0f4f2;
+  --text2: #8a9e94;
+  --text3: #4a5e54;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
 body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff6f91, #ff9a9e);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    color: white;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.card {
-    width: 90%;
-    max-width: 360px;
-    background: rgba(0,0,0,0.25);
-    padding: 30px 20px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    position: relative;
-    z-index: 2;
+/* ── Grid background ─────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-h1 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
+.app { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding: 0 0 80px; }
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.header-left {}
+.header-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+.header-title span { color: var(--green); }
+.header-date {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 2px;
+  font-weight: 400;
+}
+.header-streak {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--green-dim);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+}
+.streak-num {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+}
+.streak-label { font-size: 10px; color: var(--text2); margin-top: 2px; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── Goal bar ────────────────────────────────────── */
+.goal-section { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+.goal-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.goal-earned {
+  font-family: var(--font-head);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1px;
+}
+.goal-earned span { color: var(--green); }
+.goal-target { font-size: 13px; color: var(--text2); }
+.goal-bar-track {
+  height: 8px;
+  background: var(--bg3);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+.goal-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #16a34a, #22c55e, #4ade80);
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(.22,1,.36,1);
+  position: relative;
+}
+.goal-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+.goal-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text3); }
+
+/* ── Nav tabs ────────────────────────────────────── */
+.nav {
+  display: flex;
+  gap: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex: 1;
+  min-width: 72px;
+  padding: 13px 8px;
+  background: none;
+  border: none;
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+.nav-btn.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.nav-btn:active { opacity: 0.7; }
+
+/* ── Panels ──────────────────────────────────────── */
+.panel { display: none; padding: 16px 20px; animation: fadeIn .2s ease; }
+.panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Section headers ─────────────────────────────── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+.section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.section-title { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text2); }
+.section-prog { margin-left: auto; font-size: 11px; color: var(--text3); font-weight: 500; }
+
+/* ── Task items ──────────────────────────────────── */
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.task:active { transform: scale(0.98); }
+.task.done { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.2); }
+.task.done .task-name { text-decoration: line-through; color: var(--text3); }
+.task.done .task-desc { color: var(--text3); }
+
+.task-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border2);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  margin-top: 1px;
+  background: var(--bg3);
+}
+.task.done .task-check {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 10px rgba(34,197,94,0.3);
+}
+.task-check svg { opacity: 0; transition: opacity .15s; }
+.task.done .task-check svg { opacity: 1; }
+
+.task-body { flex: 1; min-width: 0; }
+.task-name { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.3; margin-bottom: 2px; }
+.task-desc { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: .02em;
+}
+.badge-green { background: var(--green-dim); color: var(--green); }
+.badge-amber { background: var(--amber-dim); color: var(--amber); }
+.badge-blue  { background: var(--blue-dim);  color: var(--blue);  }
+.badge-red   { background: var(--red-dim);   color: var(--red);   }
+
+/* ── Section spacing ─────────────────────────────── */
+.section-block { margin-bottom: 20px; }
+
+/* ── Progress mini bar ───────────────────────────── */
+.mini-progress {
+  height: 3px;
+  background: var(--bg3);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 8px 0 12px;
+}
+.mini-progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 999px;
+  transition: width .5s ease;
 }
 
-h2 {
-    font-size: 1.1em;
-    font-weight: normal;
-    margin-bottom: 30px;
+/* ── Counters ────────────────────────────────────── */
+.counter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.counter-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
 }
-
-.buttons {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    height: 80px;
+.counter-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.counter-val { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 10px; display: block; }
+.counter-btns { display: flex; gap: 6px; justify-content: center; }
+.cbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  background: var(--bg3);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  font-family: var(--font-head);
+  line-height: 1;
 }
+.cbtn:active { transform: scale(0.92); background: var(--bg); }
+.cbtn.plus { border-color: rgba(34,197,94,0.3); color: var(--green); }
+.cbtn.plus:active { background: var(--green-dim); }
 
-button {
-    padding: 14px 28px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+/* ── Revenue input ───────────────────────────────── */
+.rev-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.rev-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
 }
-
-.yes {
-    background: #ff4d6d;
-    color: white;
+.rev-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 5px; }
+.rev-val { font-family: var(--font-head); font-size: 17px; font-weight: 700; color: var(--text); }
+.rev-val.green { color: var(--green); }
+.rev-input {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--green);
+  width: 100%;
 }
+.rev-input::placeholder { color: var(--text3); }
 
-.no {
-    background: #6c757d;
-    color: white;
-    position: relative; /* important */
+/* ── Streak grid ─────────────────────────────────── */
+.streak-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  margin-bottom: 16px;
 }
-
-#response {
-    margin-top: 20px;
-    font-size: 1.1em;
+.streak-cell {
+  aspect-ratio: 1;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: var(--font-head);
+  font-weight: 600;
 }
+.streak-cell.done { background: var(--green-dim); border-color: rgba(34,197,94,0.3); color: var(--green); }
+.streak-cell.today { border-color: var(--green); color: var(--green); font-weight: 700; }
+.streak-cell:active { transform: scale(0.9); }
 
-/* confetti */
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    animation: fall 3s linear forwards;
-    z-index: 1;
+/* ── Action buttons ──────────────────────────────── */
+.action-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: all .15s;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.action-btn:active { transform: scale(0.98); background: var(--bg3); }
+.action-btn.green { border-color: rgba(34,197,94,0.3); background: var(--green-dim); color: var(--green); }
+.action-btn.green:active { background: rgba(34,197,94,0.2); }
 
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
+/* ── Script cards ────────────────────────────────── */
+.script-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.script-header {
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background .15s;
+}
+.script-header:active { background: var(--bg3); }
+.script-header-title { font-size: 14px; font-weight: 500; color: var(--text); }
+.script-channel { font-size: 10px; color: var(--text2); margin-top: 2px; text-transform: uppercase; letter-spacing: .05em; }
+.script-arrow { color: var(--text3); font-size: 12px; transition: transform .2s; flex-shrink: 0; margin-left: 10px; }
+.script-card.open .script-arrow { transform: rotate(180deg); }
+.script-body {
+  display: none;
+  padding: 0 16px 14px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  border-top: 1px solid var(--border);
+  background: var(--bg3);
+}
+.script-card.open .script-body { display: block; }
+.script-highlight { color: var(--green); font-style: italic; }
+
+/* ── Notes tab ───────────────────────────────────── */
+.notes-input {
+  width: 100%;
+  min-height: 200px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color .2s;
+}
+.notes-input:focus { border-color: rgba(34,197,94,0.3); }
+.notes-input::placeholder { color: var(--text3); }
+
+/* ── Info cards ──────────────────────────────────── */
+.info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.info-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.info-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+.info-val { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--text); }
+.info-val.green { color: var(--green); }
+.info-val.amber { color: var(--amber); }
+
+/* ── Save/reset ──────────────────────────────────── */
+.btn-row { display: flex; gap: 8px; margin-top: 6px; }
+.btn {
+  flex: 1;
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--green-dim); border-color: rgba(34,197,94,0.3); color: var(--green); }
+.btn.primary:active { background: rgba(34,197,94,0.2); }
+
+/* ── Toast ───────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--green);
+  color: #0a0e0d;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-head);
+  opacity: 0;
+  transition: all .3s ease;
+  pointer-events: none;
+  z-index: 100;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── Bottom nav ──────────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10,14,13,0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  padding: 8px 0 env(safe-area-inset-bottom, 8px);
+  z-index: 20;
+}
+.bnav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+}
+.bnav-btn:active { opacity: 0.6; }
+.bnav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+}
+.bnav-label { font-size: 10px; color: var(--text3); font-family: var(--font-body); font-weight: 500; letter-spacing: .02em; }
+.bnav-btn.active .bnav-label { color: var(--green); }
+.bnav-btn.active .bnav-icon { filter: drop-shadow(0 0 6px rgba(34,197,94,0.5)); }
+
+/* ── Divider ─────────────────────────────────────── */
+.divider { height: 1px; background: var(--border); margin: 14px 0; }
+
+/* ── Tip box ─────────────────────────────────────── */
+.tip-box {
+  background: rgba(34,197,94,0.06);
+  border: 1px solid rgba(34,197,94,0.15);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 12px;
+  color: #86efac;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.warn-box {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 12px;
+  color: #fcd34d;
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
 </style>
 </head>
-
 <body>
+<div class="app">
 
-<div class="card">
-    <h1>Valerikaaaaa ❤️</h1>
-    <h2>Vrei să fii partenera mea de 14 februarie? 💘</h2>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-title">$30K <span>Mission</span></div>
+      <div class="header-date" id="header-date"></div>
+    </div>
+    <div class="header-streak">
+      <div class="streak-num" id="streak-count">0</div>
+      <div class="streak-label">day streak</div>
+    </div>
+  </div>
 
-    <div class="buttons">
-        <button class="yes" id="yesBtn" onclick="accept()">DA 😍</button>
-        <button class="no" id="noBtn">Nu 🙈</button>
+  <!-- GOAL BAR -->
+  <div class="goal-section">
+    <div class="goal-top">
+      <div class="goal-earned">$<span id="earned-display">0</span></div>
+      <div class="goal-target">of $30,000 goal</div>
+    </div>
+    <div class="goal-bar-track">
+      <div class="goal-bar-fill" id="goal-bar" style="width:0%"></div>
+    </div>
+    <div class="goal-meta">
+      <span id="days-left">60 days left</span>
+      <span id="goal-pct">0% complete</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <button class="nav-btn active" onclick="showPanel('daily')">Daily</button>
+    <button class="nav-btn" onclick="showPanel('school')">School</button>
+    <button class="nav-btn" onclick="showPanel('stats')">Stats</button>
+    <button class="nav-btn" onclick="showPanel('scripts')">Scripts</button>
+    <button class="nav-btn" onclick="showPanel('plan')">Plan</button>
+    <button class="nav-btn" onclick="showPanel('notes')">Notes</button>
+  </div>
+
+  <!-- ══ DAILY PANEL ══════════════════════════════════ -->
+  <div class="panel active" id="panel-daily">
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#22c55e"></div>
+        <div class="section-title">Morning — before school</div>
+        <div class="section-prog" id="prog-morning">0/3</div>
+      </div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="bar-morning" style="width:0%"></div></div>
+
+      <div class="task" onclick="toggle(this)" data-group="morning" data-id="m1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Send 10 Instagram DMs <span class="badge badge-green">must do</span></div><div class="task-desc">Personalize each one — reference something real on their page</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="morning" data-id="m2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Research 10 new leads</div><div class="task-desc">Instagram: "med spa [city]" or "shopify store" — note handle + pain signal</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="morning" data-id="m3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Check + reply to yesterday's DMs</div><div class="task-desc">Reply within 1 hour — speed is your first impression</div></div>
+      </div>
     </div>
 
-    <div id="response"></div>
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#60a5fa"></div>
+        <div class="section-title">After school — build & pitch</div>
+        <div class="section-prog" id="prog-after">0/5</div>
+      </div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="bar-after" style="width:0%"></div></div>
+
+      <div class="task" onclick="toggle(this)" data-group="after" data-id="a1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Send 10 more DMs (20 total today)</div><div class="task-desc">Space them out — don't send all 20 at once, Instagram flags it</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="after" data-id="a2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Work on active client project <span class="badge badge-amber">if you have one</span></div><div class="task-desc">Deliver within 48 hours of deposit — always. Send Loom video on delivery.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="after" data-id="a3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Post 1 piece of content</div><div class="task-desc">TikTok or Instagram Reel — show your work, demo, or process. Inbound = free.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="after" data-id="a4">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Send follow-ups to day 3–4 non-replies</div><div class="task-desc">"Just following up — still happy to show you the demo." One follow-up only.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="after" data-id="a5">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">5 Reddit replies <span class="badge badge-blue">r/shopify · r/airbnb</span></div><div class="task-desc">Reply helpfully first, DM second. Warm leads beat cold every time.</div></div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#f87171"></div>
+        <div class="section-title">Evening — review & plan</div>
+        <div class="section-prog" id="prog-evening">0/3</div>
+      </div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="bar-evening" style="width:0%"></div></div>
+
+      <div class="task" onclick="toggle(this)" data-group="evening" data-id="e1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Log today's stats in Stats tab</div><div class="task-desc">DMs, replies, demos, closes, revenue. Honest numbers only.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="evening" data-id="e2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Prep tomorrow's lead list (20 names)</div><div class="task-desc">Write tonight so morning is pure execution, not research</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-group="evening" data-id="e3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">1-line review: what worked? what didn't?</div><div class="task-desc">If a DM got a reply — what did it say differently? Double down on that.</div></div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="resetDaily()">Reset today</button>
+      <button class="btn primary" onclick="markDayDone()">Mark day done ✓</button>
+    </div>
+  </div>
+
+  <!-- ══ SCHOOL PANEL ══════════════════════════════════ -->
+  <div class="panel" id="panel-school">
+    <div class="tip-box">You're at school right now. Use every spare minute. These tasks need no Wi-Fi — just your brain and a notebook.</div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#60a5fa"></div>
+        <div class="section-title">No internet needed</div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Write your DM script from memory</div><div class="task-desc">No looking. If you can't write it, you don't know it well enough to send it.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Write price quote script from memory</div><div class="task-desc">"Setup is $750. Includes..." — say it until it's completely natural.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Write 5 objections + your responses</div><div class="task-desc">Too expensive / Need to think / You're too young / Already sorted / How do I know it works</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc4">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">List 20 businesses to DM tonight</div><div class="task-desc">Write names + handles so you're ready the second you get home</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc5">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Write the 5 qualification questions</div><div class="task-desc">The questions that tell you in 5 min if someone is worth a 30-min pitch.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc6">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Calculate your revenue math</div><div class="task-desc">1 close/week at $750 + retainers building — what does month 2 look like?</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sc7">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Draft your Chatbase bot on paper</div><div class="task-desc">Sections: hours, services, FAQs, booking, escalation. Write the content out.</div></div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#22c55e"></div>
+        <div class="section-title">Phone tasks — breaks & lunch</div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sp1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Research leads on Instagram</div><div class="task-desc">Search "med spa [city]" — screenshot accounts with unanswered comments</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sp2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Send 10 DMs during lunch</div><div class="task-desc">Use your pre-written list — just personalize the first line and send</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="sp3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Reply to incoming DMs immediately</div><div class="task-desc">Leads go cold in 2–3 hours. Even a quick "Hey, let me show you a quick demo" works.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ STATS PANEL ══════════════════════════════════ -->
+  <div class="panel" id="panel-stats">
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#22c55e"></div>
+        <div class="section-title">Today's numbers</div>
+      </div>
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-label">DMs sent</div>
+          <span class="counter-val" id="c-dms">0</span>
+          <div class="counter-btns">
+            <button class="cbtn" onclick="change('dms',-1)">−</button>
+            <button class="cbtn plus" onclick="change('dms',1)">+</button>
+          </div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-label">Replies</div>
+          <span class="counter-val" id="c-replies">0</span>
+          <div class="counter-btns">
+            <button class="cbtn" onclick="change('replies',-1)">−</button>
+            <button class="cbtn plus" onclick="change('replies',1)">+</button>
+          </div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-label">Demos booked</div>
+          <span class="counter-val" id="c-demos">0</span>
+          <div class="counter-btns">
+            <button class="cbtn" onclick="change('demos',-1)">−</button>
+            <button class="cbtn plus" onclick="change('demos',1)">+</button>
+          </div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-label">Closes</div>
+          <span class="counter-val" id="c-closes">0</span>
+          <div class="counter-btns">
+            <button class="cbtn" onclick="change('closes',-1)">−</button>
+            <button class="cbtn plus" onclick="change('closes',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#22c55e"></div>
+        <div class="section-title">Revenue</div>
+      </div>
+      <div class="rev-grid">
+        <div class="rev-card">
+          <div class="rev-label">Today ($)</div>
+          <input class="rev-input" id="rev-today" type="number" placeholder="0" oninput="updateRevDisplay()">
+        </div>
+        <div class="rev-card">
+          <div class="rev-label">Total earned</div>
+          <div class="rev-val green" id="rev-total-display">$0</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-label">Remaining</div>
+          <div class="rev-val" id="rev-rem-display">$30,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#888"></div>
+        <div class="section-title">All-time stats</div>
+      </div>
+      <div class="info-row">
+        <div class="info-card"><div class="info-label">Total DMs</div><div class="info-val" id="t-dms">0</div></div>
+        <div class="info-card"><div class="info-label">Total closes</div><div class="info-val green" id="t-closes">0</div></div>
+        <div class="info-card"><div class="info-label">Close rate</div><div class="info-val amber" id="t-rate">—</div></div>
+        <div class="info-card"><div class="info-label">Total revenue</div><div class="info-val green" id="t-rev">$0</div></div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="section-dot" style="background:#22c55e"></div>
+        <div class="section-title">60-day streak</div>
+      </div>
+      <div class="streak-grid" id="streak-grid"></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px">Tap a day to mark it green. Day <span id="current-day-num">1</span> = today.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="resetCounters()">Reset today</button>
+      <button class="btn primary" onclick="saveDay()">Save day ✓</button>
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS PANEL ══════════════════════════════════ -->
+  <div class="panel" id="panel-scripts">
+    <div class="warn-box">Memorise these. You should be able to say every one without reading.</div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Instagram DM — wellness/clinic</div><div class="script-channel">First message</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">Hey [Name]! Love what you're doing with [specific service/post].
+
+Quick question: when a potential client DMs you asking about pricing at 10pm — does that just sit there until morning?
+
+I build AI systems for clinics that answer those automatically and even book appointments 24/7. Happy to show you a 2-min demo — no pitch, just a look.
+
+Worth it?</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Instagram DM — e-commerce store</div><div class="script-channel">First message</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">Hey [Name]! Love the [specific product] — the [detail about their branding] is really well done.
+
+Random question: how does your customer support work when someone messages "where's my order?" at midnight — does it just wait until morning?
+
+I build AI systems for Shopify stores that handle those automatically — order status, returns, FAQs — so you stop losing sales to slow responses.
+
+Want me to show you what it'd look like for your store?</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">90-second demo close</div><div class="script-channel">When showing the chatbot</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"Type in any question a customer would ask you — hours, pricing, anything."
+
+[They type. Bot answers instantly.]
+
+"This works on your website right now, 24/7, even when you're closed. Every question it answers is one less DM you have to reply to manually."
+
+[Pause.]
+
+"I built this in about a day. I can build one for your business this week."</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Price quote + silence rule</div><div class="script-channel">After the demo</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"Setup is $750 — that includes the chatbot fully trained on your business, installed on your website, and tested. I also include review automation as a bonus. After that it's $120 a month and I handle everything."
+
+[STOP TALKING. Wait. First person to speak after the price loses. Give it 5 seconds.]</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Deposit close</div><div class="script-channel">When they say yes</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"To get started I just need a $375 deposit and I'll have it live within 48 hours. The remaining $375 is due when you see it working on your site."
+
+[Send your IBAN details or USDT address. Nothing else. Wait for payment.]</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Referral ask</div><div class="script-channel">After happy delivery</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"Really glad you love it! Do you know any other clinic or store owners who'd want this? I give you $75 cash for every referral that signs up."
+
+[This is worth more than any cold outreach. One happy client = 2-3 new leads.]</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Objection: "Too expensive"</div><div class="script-channel">How to flip it</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"I get that — let me reframe it. You said you miss about [X] bookings a week. At [their service price] each, that's [X × price] a week walking out the door. This system costs $750 once. It pays for itself the first week it recovers one missed booking. Does that math make sense?"</div>
+    </div>
+
+    <div class="script-card" onclick="toggleScript(this)">
+      <div class="script-header">
+        <div><div class="script-header-title">Objection: "You're 17"</div><div class="script-channel">Your best answer</div></div>
+        <div class="script-arrow">▼</div>
+      </div>
+      <div class="script-body">"Totally fair — I'd rather you judge the work than my age. That demo you just saw? I built that. The AI doesn't know how old I am, and neither do your customers when it answers them at 2am. Let the results speak — and if they don't, you don't pay the second half. Zero risk."</div>
+    </div>
+  </div>
+
+  <!-- ══ PLAN PANEL ══════════════════════════════════ -->
+  <div class="panel" id="panel-plan">
+
+    <div class="info-row" style="margin-bottom:14px">
+      <div class="info-card"><div class="info-label">Start date</div><div class="info-val">Mar 22</div></div>
+      <div class="info-card"><div class="info-label">Deadline</div><div class="info-val amber">May 21</div></div>
+      <div class="info-card"><div class="info-label">Daily target</div><div class="info-val green">$500</div></div>
+      <div class="info-card"><div class="info-label">Per client</div><div class="info-val">$750+</div></div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="section-dot" style="background:#60a5fa"></div><div class="section-title">Phase 1 · Days 1–14 · $0 → $2K</div></div>
+      <div class="task" onclick="toggle(this)" data-id="p1">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Build med spa demo on Chatbase</div><div class="task-desc">Use the training document + system prompt from your playbook doc</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p2">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Set up Trust Wallet (USDT payments)</div><div class="task-desc">Download app, get USDT TRC-20 address, note it somewhere safe</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p3">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Set up Instagram outreach profile</div><div class="task-desc">Bio: "AI systems for clinics & stores | DM for demo"</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p4">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Send first 20 DMs to med spa accounts</div><div class="task-desc">Find accounts with unanswered comments — that's your pain signal</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p5">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Join 3 Facebook Groups</div><div class="task-desc">Shopify Entrepreneurs · Med Spa Owners · Airbnb Hosts Community</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p6">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Close first 2 clients — collect $375 deposits</div><div class="task-desc">$750 each = $1,500. Plus $375 deposits in hand = real money, real proof.</div></div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="section-dot" style="background:#22c55e"></div><div class="section-title">Phase 2 · Days 15–35 · $2K → $10K</div></div>
+      <div class="task" onclick="toggle(this)" data-id="p7">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Start Reddit outreach daily</div><div class="task-desc">r/shopify, r/ecommerce — reply helpfully to pain posts, then DM</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p8">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Add e-commerce as second niche</div><div class="task-desc">Abandoned cart recovery + support chatbot — pitch the ROI math</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p9">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Raise price to $900 for new clients</div><div class="task-desc">You now have proof. Two testimonials = double the price confidence.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p10">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Ask every happy client for a referral</div><div class="task-desc">$75 cash per referral that signs. Build this into your delivery call.</div></div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head"><div class="section-dot" style="background:#f59e0b"></div><div class="section-title">Phase 3 · Days 36–60 · $10K → $30K</div></div>
+      <div class="task" onclick="toggle(this)" data-id="p11">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Start LinkedIn outreach for real estate</div><div class="task-desc">15 connections/day — agents, property managers, Airbnb hosts</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p12">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Chase 1–2 large deals ($1,500–2,500)</div><div class="task-desc">Real estate agents or large clinics — one deal can change your week</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p13">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Stack 3 income streams simultaneously</div><div class="task-desc">Wellness + e-commerce + real estate all running at once. No brakes.</div></div>
+      </div>
+      <div class="task" onclick="toggle(this)" data-id="p14">
+        <div class="task-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="task-body"><div class="task-name">Work 7 days a week — no exceptions</div><div class="task-desc">60 days. Rest comes after May 21. Every hour counts.</div></div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:4px">Your payment setup: <strong>IBAN/SWIFT</strong> for bank transfers · <strong>USDT TRC-20</strong> for instant international · <strong>Parent's PayPal</strong> for card payments. Always collect 50% deposit before starting any work.</div>
+  </div>
+
+  <!-- ══ NOTES PANEL ══════════════════════════════════ -->
+  <div class="panel" id="panel-notes">
+    <div class="section-head" style="margin-bottom:10px">
+      <div class="section-dot" style="background:#888"></div>
+      <div class="section-title">Your notes</div>
+    </div>
+    <textarea class="notes-input" id="notes-area" placeholder="Write anything here — lead names, ideas, things to remember, what worked today..." oninput="saveNotes()"></textarea>
+    <div style="font-size:11px;color:var(--text3);margin-top:6px;text-align:right">Auto-saved</div>
+
+    <div class="divider"></div>
+
+    <div class="section-head" style="margin-bottom:10px">
+      <div class="section-dot" style="background:#22c55e"></div>
+      <div class="section-title">Quick reminders</div>
+    </div>
+    <div class="tip-box">Your goal: <strong>$30,000 by May 21, 2026.</strong> You're 17, from Moldova, fully remote. You have a plan. You have the tools. You just need to execute every single day.</div>
+    <div class="tip-box">Main offer: <strong>AI chatbot + review automation bundle.</strong> $750–900 setup + $120–150/mo retainer. Build with Chatbase + ManyChat. Deliver in 48 hours.</div>
+    <div class="tip-box">Payment: <strong>IBAN for bank transfers. USDT TRC-20 for instant. 50% deposit always, no exceptions.</strong></div>
+    <div class="warn-box">Rejection rule: 10 rejections = 1 yes incoming. Every "no" is data. Track your numbers. When DMs get replies — note what was different and repeat it.</div>
+  </div>
+
+</div><!-- end .app -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="bnav-btn active" onclick="showPanel('daily')">
+    <div class="bnav-icon">✓</div>
+    <div class="bnav-label">Daily</div>
+  </button>
+  <button class="bnav-btn" onclick="showPanel('school')">
+    <div class="bnav-icon">📚</div>
+    <div class="bnav-label">School</div>
+  </button>
+  <button class="bnav-btn" onclick="showPanel('stats')">
+    <div class="bnav-icon">📊</div>
+    <div class="bnav-label">Stats</div>
+  </button>
+  <button class="bnav-btn" onclick="showPanel('scripts')">
+    <div class="bnav-icon">💬</div>
+    <div class="bnav-label">Scripts</div>
+  </button>
+  <button class="bnav-btn" onclick="showPanel('plan')">
+    <div class="bnav-icon">🗺</div>
+    <div class="bnav-label">Plan</div>
+  </button>
+  <button class="bnav-btn" onclick="showPanel('notes')">
+    <div class="bnav-icon">📝</div>
+    <div class="bnav-label">Notes</div>
+  </button>
 </div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-let scale = 1;
+const GOAL = 30000;
+const START_DATE = new Date('2026-03-22');
 
-noBtn.addEventListener("touchstart", evade);
-noBtn.addEventListener("mouseover", evade);
+let state = {
+  tasks: {},
+  counters: { dms: 0, replies: 0, demos: 0, closes: 0 },
+  totals: { dms: 0, closes: 0, revenue: 0 },
+  streak: [],
+  revTotal: 0,
+  notes: ''
+};
 
-function evade() {
-    // mută "Nu" față de poziția lui inițială
-    const x = (Math.random() - 0.5) * 200;
-    const y = (Math.random() - 0.5) * 40;
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+try { const s = localStorage.getItem('mission30k'); if (s) state = { ...state, ...JSON.parse(s) }; } catch(e) {}
 
-    // crește "DA"
-    scale += 0.1;
-    yesBtn.style.transform = `scale(${scale})`;
+function save() { try { localStorage.setItem('mission30k', JSON.stringify(state)); } catch(e) {} }
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
 }
 
-function accept() {
-    document.getElementById("response").innerHTML =
-        "Știam eu 😌💖 14 februarie e al nostru, Valerikaaaaa 🌹✨";
-
-    launchConfetti();
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach((b, i) => {
+    b.classList.toggle('active', ['daily','school','stats','scripts','plan','notes'][i] === id);
+  });
+  document.querySelectorAll('.bnav-btn').forEach((b, i) => {
+    b.classList.toggle('active', ['daily','school','stats','scripts','plan','notes'][i] === id);
+  });
 }
 
-function launchConfetti() {
-    for (let i = 0; i < 120; i++) {
-        const conf = document.createElement("div");
-        conf.classList.add("confetti");
-        conf.style.left = Math.random() * 100 + "vw";
-        conf.style.top = "-10px";
-        conf.style.backgroundColor =
-            ["#ff4d6d","#ffd166","#06d6a0","#4cc9f0"][Math.floor(Math.random()*4)];
-        conf.style.animationDuration = (Math.random() * 2 + 2) + "s";
-        document.body.appendChild(conf);
-        setTimeout(() => conf.remove(), 3000);
-    }
+function toggle(el) {
+  const id = el.dataset.id;
+  if (!id) return;
+  el.classList.toggle('done');
+  state.tasks[id] = el.classList.contains('done');
+  save();
+  updateGroupProgress();
+  updateGoalBar();
 }
+
+function updateGroupProgress() {
+  const groups = ['morning', 'after', 'evening'];
+  groups.forEach(g => {
+    const tasks = document.querySelectorAll(`[data-group="${g}"]`);
+    const done = document.querySelectorAll(`[data-group="${g}"].done`);
+    const progEl = document.getElementById('prog-' + g);
+    const barEl = document.getElementById('bar-' + g);
+    if (progEl) progEl.textContent = `${done.length}/${tasks.length}`;
+    if (barEl) barEl.style.width = tasks.length ? (done.length / tasks.length * 100) + '%' : '0%';
+  });
+}
+
+function change(key, delta) {
+  state.counters[key] = Math.max(0, (state.counters[key] || 0) + delta);
+  document.getElementById('c-' + key).textContent = state.counters[key];
+  save();
+  updateAllTimeStats();
+}
+
+function updateRevDisplay() {
+  const today = parseFloat(document.getElementById('rev-today').value) || 0;
+  const total = (state.revTotal || 0) + today;
+  document.getElementById('rev-total-display').textContent = '$' + total.toLocaleString();
+  const rem = Math.max(0, GOAL - total);
+  document.getElementById('rev-rem-display').textContent = '$' + rem.toLocaleString();
+  updateGoalBar(total);
+  updateAllTimeStats();
+}
+
+function updateGoalBar(override) {
+  const today = parseFloat(document.getElementById('rev-today')?.value) || 0;
+  const total = override !== undefined ? override : (state.revTotal || 0) + today;
+  const pct = Math.min(100, (total / GOAL * 100));
+  document.getElementById('goal-bar').style.width = pct + '%';
+  document.getElementById('goal-pct').textContent = pct.toFixed(1) + '% complete';
+  document.getElementById('earned-display').textContent = total.toLocaleString();
+  const daysSinceStart = Math.floor((new Date() - START_DATE) / 86400000);
+  const daysLeft = Math.max(0, 60 - daysSinceStart);
+  document.getElementById('days-left').textContent = daysLeft + ' days left';
+  document.getElementById('rev-total-display').textContent = '$' + total.toLocaleString();
+  document.getElementById('rev-rem-display').textContent = '$' + Math.max(0, GOAL - total).toLocaleString();
+}
+
+function updateAllTimeStats() {
+  const today = parseFloat(document.getElementById('rev-today')?.value) || 0;
+  const tDms = (state.totals.dms || 0) + (state.counters.dms || 0);
+  const tCloses = (state.totals.closes || 0) + (state.counters.closes || 0);
+  const tRev = (state.revTotal || 0) + today;
+  document.getElementById('t-dms').textContent = tDms;
+  document.getElementById('t-closes').textContent = tCloses;
+  document.getElementById('t-rate').textContent = tDms ? Math.round(tCloses / tDms * 100) + '%' : '—';
+  document.getElementById('t-rev').textContent = '$' + tRev.toLocaleString();
+}
+
+function saveDay() {
+  const today = parseFloat(document.getElementById('rev-today').value) || 0;
+  state.revTotal = (state.revTotal || 0) + today;
+  state.totals.dms = (state.totals.dms || 0) + (state.counters.dms || 0);
+  state.totals.closes = (state.totals.closes || 0) + (state.counters.closes || 0);
+  state.totals.revenue = (state.totals.revenue || 0) + today;
+  state.counters = { dms: 0, replies: 0, demos: 0, closes: 0 };
+  document.getElementById('rev-today').value = '';
+  document.getElementById('c-dms').textContent = 0;
+  document.getElementById('c-replies').textContent = 0;
+  document.getElementById('c-demos').textContent = 0;
+  document.getElementById('c-closes').textContent = 0;
+  save();
+  updateGoalBar();
+  updateAllTimeStats();
+  toast('Day saved! Keep going 🔥');
+}
+
+function resetCounters() {
+  state.counters = { dms: 0, replies: 0, demos: 0, closes: 0 };
+  document.getElementById('rev-today').value = '';
+  ['dms','replies','demos','closes'].forEach(k => document.getElementById('c-' + k).textContent = 0);
+  save();
+  toast('Counters reset');
+}
+
+function resetDaily() {
+  document.querySelectorAll('#panel-daily .task.done').forEach(el => {
+    el.classList.remove('done');
+    if (el.dataset.id) state.tasks[el.dataset.id] = false;
+  });
+  save();
+  updateGroupProgress();
+  toast('Checklist reset for today');
+}
+
+function markDayDone() {
+  const dayNum = Math.max(1, Math.floor((new Date() - START_DATE) / 86400000) + 1);
+  if (!state.streak.includes(dayNum)) {
+    state.streak.push(dayNum);
+    save();
+    buildStreak();
+  }
+  toast('Day ' + dayNum + ' marked done! 💪');
+}
+
+function buildStreak() {
+  const grid = document.getElementById('streak-grid');
+  grid.innerHTML = '';
+  const dayNum = Math.max(1, Math.floor((new Date() - START_DATE) / 86400000) + 1);
+  document.getElementById('current-day-num').textContent = dayNum;
+  const activeDays = (state.streak || []).length;
+  document.getElementById('streak-count').textContent = activeDays;
+  for (let i = 1; i <= 60; i++) {
+    const d = document.createElement('div');
+    d.className = 'streak-cell' + (state.streak.includes(i) ? ' done' : '') + (i === dayNum ? ' today' : '');
+    d.textContent = i;
+    d.onclick = () => {
+      if (state.streak.includes(i)) state.streak = state.streak.filter(x => x !== i);
+      else state.streak.push(i);
+      save();
+      buildStreak();
+    };
+    grid.appendChild(d);
+  }
+}
+
+function toggleScript(card) { card.classList.toggle('open'); }
+
+function saveNotes() {
+  state.notes = document.getElementById('notes-area').value;
+  save();
+}
+
+function setDate() {
+  const now = new Date();
+  const opts = { weekday: 'long', day: 'numeric', month: 'long' };
+  document.getElementById('header-date').textContent = now.toLocaleDateString('en-GB', opts);
+}
+
+function restoreState() {
+  document.querySelectorAll('.task[data-id]').forEach(el => {
+    if (state.tasks[el.dataset.id]) el.classList.add('done');
+  });
+  Object.keys(state.counters).forEach(k => {
+    const el = document.getElementById('c-' + k);
+    if (el) el.textContent = state.counters[k] || 0;
+  });
+  const notesEl = document.getElementById('notes-area');
+  if (notesEl && state.notes) notesEl.value = state.notes;
+}
+
+function init() {
+  setDate();
+  restoreState();
+  buildStreak();
+  updateGroupProgress();
+  updateGoalBar();
+  updateAllTimeStats();
+}
+
+init();
 </script>
-
 </body>
 </html>
